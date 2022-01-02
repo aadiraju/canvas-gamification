@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'general',
     'api',
     'canvas',
+    'video_recommendations',
 ]
 
 MIDDLEWARE = [
