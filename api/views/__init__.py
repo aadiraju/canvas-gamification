@@ -24,3 +24,5 @@ from .user_consent import UserConsentViewSet
 from .user_stats import UserStatsViewSet
 from .uqj_update import UpdateUQJViewSet
 from .question_report import QuestionReportViewSet
+from .video import VideoViewSet
+from .user_video_junction import UserVideoJunctionViewSet

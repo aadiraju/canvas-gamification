@@ -19,6 +19,7 @@ from .change_password import ChangePasswordSerializer
 from .reset_password import ResetPasswordSerializer
 from .register import UserRegistrationSerializer
 from .update_profile import UpdateProfileSerializer
+from .video import VideoSerializer
 
 # Serializers that depend on other serializers
 from .token_use import TokenUseSerializer
@@ -30,3 +31,4 @@ from .uqj import UQJSerializer
 from .canvas_course_registration import CanvasCourseRegistrationSerializer
 from .course import CourseSerializer, CourseSerializerList
 from .question_report import QuestionReportSerializer
+from .user_video_junction import UserVideoJunctionSerializer
