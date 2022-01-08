@@ -40,6 +40,9 @@ elif DEBUG:
 else:
     ALLOWED_HOSTS = os.environ['SERVER_NAME'].split()
 
+# Load YouTube Keys for Video Recommendations
+read_env(os.path.join(BASE_DIR, 'env', 'videorecs.env'))
+
 # Application definition
 
 INSTALLED_APPS = [

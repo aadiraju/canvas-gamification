@@ -34,3 +34,5 @@ beautifulsoup4==4.9.3
 pyyaml==5.4
 uritemplate==3.0.1
 django-filter==2.4.0
+python-dotenv==0.19.2
+google-api-python-client==2.34.0
