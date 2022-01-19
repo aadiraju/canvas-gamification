@@ -14,7 +14,7 @@ class Video(models.Model):
     like_count = models.IntegerField(null=False, blank=False, default=0)
     comment_count = models.IntegerField(null=False, blank=False, default=0)
     youtube_category = models.CharField(max_length=50, null=True, blank=False)
-    associated_category = models.ForeignKey(QuestionCategory, on_delete=models.SET_NULL, null=True, blank=True)
+    associated_categories = models.ManyToManyField(QuestionCategory)
 
     def __str__(self):
         return self.video_id
