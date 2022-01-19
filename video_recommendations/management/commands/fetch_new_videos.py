@@ -54,7 +54,7 @@ def get_videos_by_category_name(category_name, category_id):
                                   comment_count=comment_count, youtube_category=youtube_category)
                 new_video.save()
                 new_video.associated_categories.add(associated_category)
-            except (ValidationError, IntegrityError) as e:
+            except (ValidationError, IntegrityError):
                 pass
 
 
