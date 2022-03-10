@@ -9,5 +9,15 @@ class UserVideoJunctionAdmin(admin.ModelAdmin):
     list_filter = ('user__username', 'video')
 
 
-admin.site.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    search_fields = [
+        'title'
+    ]
+    list_display = ('video_id', 'title', 'get_associated_categories')
+
+    def get_associated_categories(self, obj):
+        return ', '.join([c.name for c in obj.associated_categories.all()])
+
+
+admin.site.register(Video, VideoAdmin)
 admin.site.register(UserVideoJunction, UserVideoJunctionAdmin)

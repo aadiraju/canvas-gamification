@@ -46,14 +46,14 @@ def get_videos_by_category_name(category_name, category_id):
 
         try:
             existing_video = Video.objects.get(video_id=video_id)
-            existing_video.associated_categories.add(associated_category)
+            existing_video.associated_categories.add(category_id)
         except ObjectDoesNotExist:
             try:
                 new_video = Video(video_id=video_id, title=title, description=description, duration=duration,
                                   publish_date=published_at, view_count=view_count, like_count=like_count,
                                   comment_count=comment_count, youtube_category=youtube_category)
                 new_video.save()
-                new_video.associated_categories.add(associated_category)
+                new_video.associated_categories.add(category_id)
             except (ValidationError, IntegrityError):
                 pass
 
@@ -62,6 +62,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print('Updating DB with Youtube Videos')
         sub_categories = QuestionCategory.objects.exclude(parent=None)
+        ids = [21, 32, 34]
         for subcat in sub_categories:
-            print('Querying ' + subcat.description + '...')
-            get_videos_by_category_name(subcat.description, subcat.pk)
+            if subcat.pk in ids:
+                print('Querying ' + subcat.description + '...')
+                get_videos_by_category_name(subcat.description, subcat.pk)
